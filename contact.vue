@@ -86,6 +86,7 @@
 <style>
     #contact_us_container h2{
         font-size: 0.8rem;
+        line-height: 1.5rem;
     }
 </style>
 <script>
