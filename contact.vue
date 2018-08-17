@@ -84,7 +84,7 @@
     </div>
 </template>
 <style>
-    h2{
+    #contact_us_container h2{
         font-size: 0.8rem;
     }
 </style>
