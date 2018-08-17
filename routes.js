@@ -6,6 +6,7 @@ define([], function () {
         },
         {
             path: '/center-information',
+            component: view('default'),
             meta: {
                 breadcrumb: 'Center Information'
             },
