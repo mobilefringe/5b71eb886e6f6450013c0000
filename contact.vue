@@ -84,9 +84,9 @@
     </div>
 </template>
 <style>
-    h2{
-        font-size: 0.8rem;
-    }
+    /*h2{*/
+    /*    font-size: 0.8rem;*/
+    /*}*/
 </style>
 <script>
     define(["Vue", "vuex", "vue-meta", "vee-validate"], function (Vue, Vuex, Meta, VeeValidate) {
