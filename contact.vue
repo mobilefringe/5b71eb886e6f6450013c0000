@@ -84,7 +84,9 @@
     </div>
 </template>
 <style>
-    
+    h2{
+        
+    }
 </style>
 <script>
     define(["Vue", "vuex", "vue-meta", "vee-validate"], function (Vue, Vuex, Meta, VeeValidate) {
