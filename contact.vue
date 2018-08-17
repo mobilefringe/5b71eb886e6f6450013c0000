@@ -83,6 +83,9 @@
         </transition>
     </div>
 </template>
+<style>
+    
+</style>
 <script>
     define(["Vue", "vuex", "vue-meta", "vee-validate"], function (Vue, Vuex, Meta, VeeValidate) {
         Vue.use(Meta);
