@@ -2,7 +2,7 @@
     <div> <!-- without an outer container div this component template will not render -->
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
-            <div v-if="dataLoaded" v-cloak>
+            <div v-if="dataLoaded" v-cloak id="contact_us_container">
                 <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
                     <div class="main_container position_relative">
                         <h2>Contact Us</h2>
