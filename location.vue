@@ -59,7 +59,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    var repo = this.findRepoByName('Location Banner').images;
+                    var repo = this.findRepoByName('Location Banner');
                     if(temp_repo !== null && temp_repo !== undefined) {
                        temp_repo = temp_repo.images;
                        this.pageBanner = temp_repo[0];
