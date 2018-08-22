@@ -15,7 +15,7 @@
                             <div v-if="pageContent" v-html="pageContent.body"></div>
                             <form class="newsletter_form form-horizontal" action="//mobilefringe.createsend.com/t/d/s/uljyyh/" method="post">
                                 <div class="row">
-                                    <div class="col-sm-6" >
+                                    <div class="col-sm-12" >
                                         <label for="fieldfihudt" class="accessibility">First Name</label>
                                         <input v-model="form_data.first_name" required class="margin_20 form-control" id="fieldfihudt" name="cm-name" type="text" placeholder="First Name">
                                     </div>
