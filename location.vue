@@ -25,7 +25,7 @@
                 </div>
                 <div class="main_container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" v-if="address">
                             <div v-if="address" v-html="address.body"></div>
                         </div>
                         <div class="col-md-6">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="location_image_container"  v-if="pageImages">
+                <div class="location_image_container">
                     <div class="location_image" v-if="pageImages" v-for="item in pageImages">
                         <img :src="item.image_url" alt="item.id" class="img_max" />   
                     </div>
