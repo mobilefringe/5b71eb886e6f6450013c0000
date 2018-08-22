@@ -31,14 +31,9 @@
                             <h3 class="center inside_page_title">Amenities</h3>
                         </div>
                     </div>
-                    <!--<div class="row">-->
-                    <!--    <div class="col-md-6" v-if="amenities" v-for="item in amenities">-->
-                    <!--        <p class="amenities_title">{{ item.title }}</p>-->
-                    <!--        <div class="amenities_body" v-html="item.body"></div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
                     <div class="row">
-                        <div class="col-md-12" v-if="amenities" v-for="item in amenities">
+                        <div class="col-md-6" v-if="amenities" v-for="item in amenities">
+                            <p class="amenities_title">{{ item.title }}</p>
                             <div class="amenities_body" v-html="item.body"></div>
                         </div>
                     </div>
@@ -94,7 +89,7 @@
                 loadData: async function () {
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/shopsatrossmoor-center-information.json"})]);
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/cerritos-center-information.json"})]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
