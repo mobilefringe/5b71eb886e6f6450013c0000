@@ -25,7 +25,7 @@
                         <img :src="item.image_url" alt="" />   
                     </div>
                 </div>
-                <div class="main_container">
+                <div class="main_container"  v-if="amenities">
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="center inside_page_title">Amenities</h3>
