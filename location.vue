@@ -62,7 +62,7 @@
                     var repo = this.findRepoByName('Location Banner');
                     console.log("temp_repo",repo);
                     if(repo !== null && repo !== undefined) {
-                       temp_repo = repo.images;
+                       repo = repo.images;
                        this.pageBanner = repo[0];
                     }
                     else {
