@@ -306,9 +306,9 @@ a {
             	}
             	a{
             	    &:focus, &:active, &:hover, &:visited {
-            	    background: $primary;
-            	    color: $secondary;
-            	}
+                	    background: $primary;
+                	    color: $secondary;
+                	}
             	}
             }
         }
