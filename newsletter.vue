@@ -82,7 +82,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Newsletter Banner').images;
+                    var temp_repo = this.findRepoByName('Newsletter Banner');
                     if(temp_repo != null) {
                         this.pageBanner = temp_repo[0];
                     } else {
