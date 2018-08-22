@@ -300,7 +300,7 @@ a {
                 a:hover {
                     color: inherit;
                 }
-            	&:focus, &:hover, &:active, &:visited {
+            	&:focus, &:active, &:hover, &:visited {
             	    background: $primary;
             	    color: $secondary;
             	}
