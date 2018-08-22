@@ -28,8 +28,8 @@
                         <div class="col-md-6" v-if="address">
                             <div v-if="address" v-html="address.body"></div>
                         </div>
-                        <div class="col-md-6">
-                            <div v-if="directions" v-html="directions.body"></div>
+                        <div class="col-md-6" v-if="directions">
+                            <div  v-html="directions.body"></div>
                         </div>
                     </div>
                 </div>
