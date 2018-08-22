@@ -71,6 +71,13 @@
                         console.error( "Could not retrieve data from server. Please check internet connection and try again.");
                         _this.$router.replace({ name: '404' });
                     });
+                    this.property.mm_host = this.property.mm_host.replace("http:", "");
+                    try {
+                        let results = await Promise.all([this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/shopsatrossmoor-newsletter.json"}), this.$store.dispatch("getData", "repos")]);
+                        return results;
+                    } catch (e) {
+                        console.log("Error loading data: " + e.message);
+                    }
                 }
             }
         });
