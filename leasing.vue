@@ -62,7 +62,7 @@
                 this.loadData().then(response => {
                     var temp_repo = this.findRepoByName('Leasing Banner');
                     console.log("temp_repo", temp_repo)
-                    if(temp_repo != null) {
+                    if(temp_repo != null && temp_repo !==undefined) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
                         this.pageBanner = {
