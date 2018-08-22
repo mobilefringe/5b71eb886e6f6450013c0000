@@ -3,7 +3,7 @@
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
             <div v-if="dataLoaded" v-cloak>
-                <div class="inside_page_header" v-if="pageBanner"v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
+                <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
                     <div class="main_container position_relative">
                         <h2>Location</h2>
                     </div>
@@ -60,7 +60,6 @@
             created() {
                 this.loadData().then(response => {
                     var repo = this.findRepoByName('Location Banner');
-                    console.log("temp_repo",repo);
                     if(repo !== null && repo !== undefined) {
                        repo = repo.images;
                        this.pageBanner = repo[0];
