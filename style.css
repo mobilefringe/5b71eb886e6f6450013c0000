@@ -304,6 +304,12 @@ a {
             	    background: $primary;
             	    color: $secondary;
             	}
+            	a{
+            	    &:focus, &:active, &:hover, &:visited {
+            	    background: $primary;
+            	    color: $secondary;
+            	}
+            	}
             }
         }
     }
