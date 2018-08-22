@@ -2,7 +2,7 @@
     <div> <!-- without an outer container div this component template will not render -->
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
-            <div v-if="dataLoaded" v-cloak id="contact_us_container">
+            <div v-if="dataLoaded" v-cloak>
                 <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
                     <div class="main_container position_relative">
                         <h2>Contact Us</h2>
@@ -14,14 +14,14 @@
                             <breadcrumb></breadcrumb>
                         </div>
                     </div>
-                    <!--<div class="row">-->
-                    <!--    <div class="col-md-12">-->
-                    <!--        <div v-if="main" class="margin_60" v-html="main.body"></div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div v-if="main.body" class="margin_60" v-html="main.body"></div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div v-if="main" class="margin_60 padding_60" v-html="main.body"></div>  
+                            <div v-if="contactInfo.body" class="margin_60 padding_60" v-html="contactInfo.body"></div>    
                         </div>
                         <div class="col-md-8">
                             <transition name="fadeIn">
