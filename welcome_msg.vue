@@ -11,7 +11,6 @@
     define(["Vue", "vuex"], function(Vue, Vuex){
         return Vue.component("messages-component", {
             template: template, // the variable template will be injected
-            
             computed: {
                 ...Vuex.mapGetters([
                     'property'
