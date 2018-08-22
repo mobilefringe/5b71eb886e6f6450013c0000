@@ -64,7 +64,8 @@
             },
             created() {
                 this.loadData().then(response => {
-                    var temp_repo = _.sortBy(this.findRepoByName('Center Information Images'), function(o){return o.id});;
+                    var temp_repo = this.findRepoByName('Center Information Images');
+                    _.sortBy(temp_repo, function(o){return o.id});
                     if(temp_repo) {
                         var three_imgs = _.slice(temp_repo.images, [0], [3])
                         this.pageImages = three_imgs;
