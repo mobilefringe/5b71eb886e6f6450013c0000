@@ -68,7 +68,7 @@
                     
                     if(temp_repo) {
                         _.sortBy(temp_repo.images, function(o){return o.id});
-                    console.log("temp_repo", temp_repo)
+                     console.log("temp_repo", temp_repo)
                         var three_imgs = _.slice(temp_repo.images, [0], [3])
                         this.pageImages = three_imgs;
 
