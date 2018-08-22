@@ -219,7 +219,8 @@
                     if (category_id == "All" || category_id == null || category_id == undefined) {
                         category_id = "All";
                     } else {
-                        category_id = this.findCategoryByName(category_id).id;
+                        category = this.findCategoryByName(category_id).id;
+                        category_id =category.id;
                     }
 
                     if (category_id == "All") {
