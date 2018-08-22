@@ -305,7 +305,7 @@ a {
             	    color: $secondary;
             	}
             	a{
-            	    &:focus, &:hover, &:visited {
+            	    &:focus, &:hover{
                 	    background: $primary;
                 	    color: $secondary;
                 	}
