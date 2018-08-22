@@ -14,9 +14,9 @@
                             <breadcrumb></breadcrumb>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" v-if="main">
                         <div class="col-md-12">
-                            <div v-if="main" v-html="main.body"></div>
+                            <div  v-html="main.body"></div>
                         </div>
                     </div>
                 </div>
