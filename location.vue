@@ -26,10 +26,10 @@
                 <div class="main_container">
                     <div class="row">
                         <div class="col-md-6" v-if="address">
-                            <div  v-html="address.body"></div>
+                            <div v-html="address.body"></div>
                         </div>
                         <div class="col-md-6" v-if="directions">
-                            <div  v-html="directions.body"></div>
+                            <div v-html="directions.body"></div>
                         </div>
                     </div>
                 </div>
