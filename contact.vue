@@ -17,14 +17,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!--<div v-if="main" class="margin_60" v-html="main.body"></div>-->
-                            <div class="margin_60">
-                                Pellentesque vel commodo ligula. Suspendisse faucibus nec tellus eget dictum. Vivamus aliquam mi in mi sagittis, eu egestas dolor feugiat. Nunc sit amet mauris tortor. Vestibulum congue sed lectus nec accumsan. Proin non dui imperdiet, lacinia metus et, scelerisque turpis. Morbi vel quam sapien. Integer iaculis ac lorem eget maximus. Nunc accumsan metus eu nulla consequat, nec interdum nunc volutpat. Sed eu suscipit est. Curabitur eget facilisis est, et cursus nunc.
-                            </div>
+                            <p class="margin_60">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac egestas nisl. Cras odio massa, tincidunt ut faucibus in, egestas non nisl. Morbi vel nibh metus. In quis est eget risus semper facilisis. Sed in felis vel lorem consectetur convallis. Aliquam fringilla facilisis ipsum et sagittis. Maecenas rutrum urna id efficitur ultrices. Duis porttitor, ante quis consectetur aliquet, elit massa dignissim ex, non luctus lacus dolor quis ipsum.</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="contact_us_container">
                         <div class="col-md-4">
-                            <div v-if="contactInfo" class="margin_60 padding_60" v-html="contactInfo.body"></div>    
+                            <div v-if="contactInfo.body" class="margin_60 padding_60" v-html="contactInfo.body"></div>    
                         </div>
                         <div class="col-md-8">
                             <transition name="fadeIn">
@@ -86,6 +84,14 @@
         </transition>
     </div>
 </template>
+<style>
+    #contact_us_container h2{
+        font-size: 0.8rem;
+        line-height: 1.5rem;
+        margin:auto;
+        color:#497e71;
+    }
+</style>
 <script>
     define(["Vue", "vuex", "vue-meta", "vee-validate", "json!site.json"], function (Vue, Vuex, Meta, VeeValidate, Site) {
         Vue.use(Meta);
@@ -117,13 +123,13 @@
                             "image_url": "//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1529532304000/insidebanner2.jpg"
                         }
                     }
+                    
                     if(response && response[0]){
                         this.main = response[0].data
                         if(response[0].data && response[0].data.subpages){
                            this.contactInfo = response[0].data.subpages[0];
                         }
                     }
-                    
                     this.dataLoaded = true;
                 });
             },
