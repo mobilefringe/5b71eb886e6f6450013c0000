@@ -45,13 +45,12 @@
 </template>
 
 <script>
-	define(["Vue", "vuex"], function(Vue, Vuex) {
+	define(["Vue", "vuex", "json!site.json"], function(Vue, Vuex, Site) {
 		return Vue.component("location-component", {
             template: template, // the variable template will be injected
             data: function () {
                 return {
                     dataLoaded: false,
-                    pageBanner: null,
                     main: null,
                     leasingInfo: null,
                     leasingBooklet: null,
@@ -78,9 +77,13 @@
                     if(temp_repo2) {
                         this.pageImages = temp_repo2.images;
                     }
-
-                    this.main = response[1].data;
-                    this.leasingInfo = response[1].data.subpages[0]
+                    
+                    if(response && response[1]){
+                        this.main = response[1].data;
+                        if(response[1].data && response[1].data.subpages && response[1].data.subpages[0]){
+                            this.leasingInfo = response[1].data.subpages[0]
+                        }
+                    }
                     this.dataLoaded = true;
                 });
             },
@@ -95,7 +98,7 @@
                 loadData: async function () {
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/shopsatrossmoor-leasing.json"})]);
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/"+Site.subdomain+"-leasing.json"})]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
