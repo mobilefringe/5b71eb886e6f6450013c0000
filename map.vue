@@ -3,7 +3,7 @@
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
             <div v-if="dataLoaded" v-cloak>
-                <div class="inside_page_header" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
+                <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
                     <div class="main_container position_relative">
                         <h2>Center Map</h2>
                     </div>
@@ -65,39 +65,37 @@
             data: function() {
                 return {
                     dataLoaded: false,
-                    pageBanner: null,
                     selectedCat: null,
+                    pageBanner : null,
                     filteredStores: null,
                     suggestionAttribute: "name",
                     storeSearch: null,
                     currentSelection: null,
-                    dineFilter: 5962
                 }
             },
             created (){
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Map Banner').images;
-                    if(temp_repo !== null && temp_repo !== undefined) {
-                       temp_repo = temp_repo.images;
-                       this.pageBanner = temp_repo[0];
+                    var repo = this.findRepoByName('Map Banner');
+                    if(repo !== null && repo !== undefined) {
+                       repo = repo.images;
+                       this.pageBanner = repo[0];
                     }
                     else {
                         this.pageBanner = {
                             "image_url": "//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1529532304000/insidebanner2.jpg"
                         }
                     }
-                    
                     this.dataLoaded = true;
                 });
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
-                    'findRepoByName',
                     'processedStores',
                     "processedCategories",
                     "storesByCategoryName",
-                    'findCategoryByName'
+                    'findCategoryByName',
+                    'findRepoByName'
                 ]),
                 allStores() {
                     this.processedStores.map(function(store){
@@ -109,8 +107,7 @@
                     return this.processedCategories;
                 },
                 dropDownCats() {
-                    var cats = _.filter(this.processedCategories, function(o) { return o.name != "Dine Filter"; });
-                    cats = _.map(cats, 'name');
+                    var cats = _.map(this.processedCategories, 'name');
                     cats.unshift('All');
                     return cats;
                 },
