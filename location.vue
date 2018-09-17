@@ -14,9 +14,9 @@
                             <breadcrumb></breadcrumb>
                         </div>
                     </div>
-                    <div class="row" v-if="main">
+                    <div class="row">
                         <div class="col-md-12">
-                            <div  v-html="main.body"></div>
+                            <div v-if="main" v-html="main.body"></div>
                         </div>
                     </div>
                 </div>
@@ -25,17 +25,17 @@
                 </div>
                 <div class="main_container">
                     <div class="row">
-                        <div class="col-md-6" v-if="address">
-                            <div v-html="address.body"></div>
+                        <div class="col-md-6">
+                            <div v-if="address" v-html="address.body"></div>
                         </div>
-                        <div class="col-md-6" v-if="directions">
-                            <div v-html="directions.body"></div>
+                        <div class="col-md-6">
+                            <div v-if="directions" v-html="directions.body"></div>
                         </div>
                     </div>
                 </div>
                 <div class="location_image_container">
                     <div class="location_image" v-if="pageImages" v-for="item in pageImages">
-                        <img :src="item.image_url" alt="item.id" class="img_max" />   
+                        <img :src="item.image_url" :alt="item.name" class="img_max" />   
                     </div>
                 </div>
             </div>
@@ -44,13 +44,12 @@
 </template>
 
 <script>
-	define(["Vue", "vuex", "vue!google_map"], function(Vue, Vuex, google_map ) {
+	define(["Vue", "vuex", "vue!google_map","json!site.json"], function(Vue, Vuex, google_map, Site) {
 		return Vue.component("location-component", {
             template: template, // the variable template will be injected
             data: function () {
                 return {
                     dataLoaded: false,
-                    pageBanner: null,
                     main: null,
                     address: null,
                     directions: null,
@@ -74,9 +73,16 @@
                     if(temp_repo) {
                         this.pageImages = temp_repo.images;
                     }
-                    this.main = response[1].data;
-                    this.address = response[1].data.subpages[0]
-                    this.directions = response[1].data.subpages[1]
+                    if(response && response[1]){
+                        this.main = response[1].data;
+                        if(response[1].data && response[1].data.subpages){
+                           this.address = response[1].data.subpages[0];
+                           this.directions = response[1].data.subpages[1]
+                        }
+                    }
+                    // this.main = response[1].data;
+                    // this.address = response[1].data.subpages[0]
+                    // this.directions = response[1].data.subpages[1]
                     this.dataLoaded = true;
                 });
             },
@@ -94,7 +100,7 @@
                 loadData: async function () {
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/shopsatrossmoor-location.json"})]);
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/"+Site.subdomain+"-location.json"})]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
