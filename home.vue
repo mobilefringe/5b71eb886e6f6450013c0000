@@ -29,7 +29,7 @@
                                 </a>
                             </div>
                         </div>
-                    </slick>
+                    <!--</slick>-->
                     <div class="next"></div>
                 </div>
                 <messages-component></messages-component>
