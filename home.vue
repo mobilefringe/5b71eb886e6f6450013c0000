@@ -25,7 +25,7 @@
                             </div>
                             <div v-else>
                                 <a :href="banner.url">
-                                    <div class="banner_image" v-bind:style="{ backgroundImage: 'url(//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1552587372438/rsb_home_1925x470.jpg)' }"></div>
+                                    <div class="banner_image" v-bind:style="{ backgroundImage: 'url(' + banner.image_url + ')' }"></div>
                                 </a>
                             </div>
                         </div>
@@ -164,34 +164,34 @@
                     'processedPromos',
                     'processedEvents'
                 ]),
-                // homeBanners() {
-                //     var banners = [];
-                //     _.forEach(this.$store.state.banners, function (value, key) {
-                //         var today = new Date();
-                //         var start = new Date (value.start_date);
-                //         if (start <= today){
-                //             if (value.end_date){
-                //                 var end = new Date (value.end_date);
-                //                 if (end >= today){
-                //                     banners.push(value);  
-                //                 }
-                //             } else {
-                //                 banners.push(value);
-                //             }
+                homeBanners() {
+                    var banners = [];
+                    _.forEach(this.$store.state.banners, function (value, key) {
+                        var today = new Date();
+                        var start = new Date (value.start_date);
+                        if (start <= today){
+                            if (value.end_date){
+                                var end = new Date (value.end_date);
+                                if (end >= today){
+                                    banners.push(value);  
+                                }
+                            } else {
+                                banners.push(value);
+                            }
                             
-                //             if (value.id == 40896) {
-                //                 value.heading = "Coming Soon"
-                //             } else if (value.id == 40873) {
-                //                 value.heading = "Dining"
-                //             } else if (value.id == 40624) {
-                //                 value.heading = "Starbucks"
-                //             }
-                //         }
-                //     });
-                //     banners = _.orderBy(banners, function(o) { return o.position });
-                //     console.log(banners)
-                //     return banners
-                // },
+                            if (value.id == 40896) {
+                                value.heading = "Coming Soon"
+                            } else if (value.id == 40873) {
+                                value.heading = "Dining"
+                            } else if (value.id == 40624) {
+                                value.heading = "Starbucks"
+                            }
+                        }
+                    });
+                    banners = _.orderBy(banners, function(o) { return o.position });
+                    console.log(banners)
+                    return banners
+                },
                 featuredItems() {
                     var promotions = [];
                     var featured_promotions = [];
