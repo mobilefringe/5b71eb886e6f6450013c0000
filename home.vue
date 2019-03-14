@@ -5,7 +5,7 @@
             <div v-if="dataLoaded" v-cloak>
                 <div class="home_banner_container">
                     <div class="prev"></div>
-                    <slick ref="slick" :options="slickOptions">
+                    <!--<slick ref="slick" :options="slickOptions">-->
                         <div>
                         <!--<div v-if="homeBanners" v-for="banner in homeBanners">-->
                             <div class="banner_height">
@@ -31,7 +31,7 @@
                             <!--    </a>-->
                             <!--</div>-->
                         </div>
-                    </slick>
+                    <!--</slick>-->
                     <div class="next"></div>
                 </div>
                 <messages-component></messages-component>
