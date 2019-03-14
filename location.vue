@@ -21,7 +21,6 @@
                     </div>
                 </div>
                 <div class="location_map">
-                    <!--<google-map :property="property" :zoom="16"></google-map>-->
                     <div class="location_map">
                         <iframe :src="propertyAddress()" width="100%" height="490" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
