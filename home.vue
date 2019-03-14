@@ -13,12 +13,12 @@
                                 <div class="banner_image" v-bind:style="{ backgroundImage: 'url(//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1552587372438/rsb_home_1925x470.jpg)'}"></div>
                                 <div class="banner_content_container">
                                     <div class="banner_content">
-                                        <span v-if="banner.heading" class="banner_heading">{{ banner.heading }}</span>
-                                        <h1 class="banner_title">{{ banner.name }}</h1>
-                                        <p class="banner_text">{{ banner.description }}</p>
-                                        <a :href="banner.url">
-                                            <span class="banner_btn animated_btn">Find Out More</span>
-                                        </a>
+                                        <!--<span v-if="banner.heading" class="banner_heading">{{ banner.heading }}</span>-->
+                                        <!--<h1 class="banner_title">{{ banner.name }}</h1>-->
+                                        <!--<p class="banner_text">{{ banner.description }}</p>-->
+                                        <!--<a :href="banner.url">-->
+                                        <!--    <span class="banner_btn animated_btn">Find Out More</span>-->
+                                        <!--</a>-->
                                     </div>
                                 </div>
                             </div>
