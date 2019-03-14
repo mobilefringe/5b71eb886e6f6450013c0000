@@ -25,7 +25,7 @@
                             </div>
                             <div v-else>
                                 <a :href="banner.url">
-                                    <div class="banner_image" v-bind:style="{ backgroundImage: 'url(' + banner.image_url + ')' }"></div>
+                                    <div class="banner_image" v-bind:style="{ backgroundImage: 'url(//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1552587372438/rsb_home_1925x470.jpg)' }"></div>
                                 </a>
                             </div>
                         </div>
