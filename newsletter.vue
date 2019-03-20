@@ -7,13 +7,13 @@
                     <div class="main_container position_relative">
                         <h2>Newsletter</h2>
                     </div>
-                    <p>Join our Newsletter list to be the first to get the latest news, offers, and event access.</p>
+                    
                 </div>
                 <div class="main_container">
                     <div class="row">
                         <div class="col-md-12">
                             <breadcrumb></breadcrumb>
-                            <div v-if="pageContent" v-html="pageContent.body"></div>
+                            <p>Join our Newsletter list to be the first to get the latest news, offers, and event access.</p>
                             <form class="newsletter_form form-horizontal" action="//mobilefringe.createsend.com/t/d/s/uljyyh/" method="post">
                                 <div class="row">
                                     <div class="col-sm-12" >
