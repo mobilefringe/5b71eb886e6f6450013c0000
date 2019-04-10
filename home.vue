@@ -190,7 +190,7 @@
                     //         }
                     //     }
                     // });
-                     var temp_image_url = ["//codecloud.cdn.speedyrails.net/sites/5ca2276b6e6f641886000000/image/jpeg/1554907912435/rp_home_1925x470.jpg"]
+                    var temp_image_url = ["//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1552587372438/rsb_home_1925x470.jpg]
                     var temp_name = ["Treat Yourself."]
                     var temp_desc = ["You deserve it."]
                     var temp_url = ["/stores"]
