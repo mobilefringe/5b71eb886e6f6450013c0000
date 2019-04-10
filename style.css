@@ -496,7 +496,7 @@ img{
                 border: 1px solid $secondary;
                 background: transparent;
                 font-size: 0.9rem;
-                color: #000;    
+                color: #fff;    
                 text-transform: uppercase;
                 transition: all 0.3s ease;
                 &:hover {
