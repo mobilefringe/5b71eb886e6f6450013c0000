@@ -494,7 +494,7 @@ img{
                 padding: 7px 30px;
                 display: inline-block;
                 border: 1px solid $secondary;
-                background: transparent;
+                background: #secondary;
                 font-size: 0.9rem;
                 color: #fff;    
                 text-transform: uppercase;
