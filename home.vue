@@ -168,28 +168,28 @@
                 ]),
                 homeBanners() {
                     var banners = [];
-                    _.forEach(this.$store.state.banners, function (value, key) {
-                        var today = new Date();
-                        var start = new Date (value.start_date);
-                        if (start <= today){
-                            if (value.end_date){
-                                var end = new Date (value.end_date);
-                                if (end >= today){
-                                    banners.push(value);  
-                                }
-                            } else {
-                                banners.push(value);
-                            }
+                    // _.forEach(this.$store.state.banners, function (value, key) {
+                    //     var today = new Date();
+                    //     var start = new Date (value.start_date);
+                    //     if (start <= today){
+                    //         if (value.end_date){
+                    //             var end = new Date (value.end_date);
+                    //             if (end >= today){
+                    //                 banners.push(value);  
+                    //             }
+                    //         } else {
+                    //             banners.push(value);
+                    //         }
                             
-                            if (value.id == 40896) {
-                                value.heading = "Coming Soon"
-                            } else if (value.id == 40873) {
-                                value.heading = "Dining"
-                            } else if (value.id == 40624) {
-                                value.heading = "Starbucks"
-                            }
-                        }
-                    });
+                    //         if (value.id == 40896) {
+                    //             value.heading = "Coming Soon"
+                    //         } else if (value.id == 40873) {
+                    //             value.heading = "Dining"
+                    //         } else if (value.id == 40624) {
+                    //             value.heading = "Starbucks"
+                    //         }
+                    //     }
+                    // });
                     banners = _.orderBy(banners, function(o) { return o.position });
                     console.log(banners)
                     return banners
