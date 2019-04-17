@@ -3,11 +3,11 @@
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
             <div v-if="dataLoaded" v-cloak>
-                <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">
-                    <div class="main_container position_relative">
-                        <h2>Contest</h2>
-                    </div>
-                </div>
+                <!--<div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center' }">-->
+                <!--    <div class="main_container position_relative">-->
+                <!--        <h2>Contest</h2>-->
+                <!--    </div>-->
+                <!--</div>-->
                 <div class="main_container">
                     <div class="row">
                         <div class="col-md-12">
@@ -15,9 +15,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!--<div class="col-md-8 col-md-offset-2">-->
-                        <!--    <img v-if="currentContest.image_url" class="img_max" :src="currentContest.image_url" :alt="currentContest.name">-->
-                        <!--</div>-->
+                        <div class="col-md-8 col-md-offset-2">
+                            <img v-if="currentContest.image_url" class="img_max" :src="currentContest.image_url" :alt="currentContest.name">
+                        </div>
                     </div> 
                     <div class="row"> 
                         <div class="col-md-8 col-md-offset-2">
