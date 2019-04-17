@@ -71,7 +71,7 @@
                                         </label>
         						    </div>
         						    <div class="col-xs-12">
-        						        <p>For more details about personal privacy, please read our <a href="/pages/longbeach-privacy-policy" target="_blank">Privacy Policy</a>.</p>
+        						        <p>For more details about personal privacy, please read our <a href="" target="_blank">Privacy Policy</a>.</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -107,21 +107,24 @@
             },
             created() {
                 this.$store.dispatch("getData", "repos").then(response => {
-                    var temp_repo = this.findRepoByName('Events Banner').images;
-                    if(temp_repo != null) {
-                        this.pageBanner = temp_repo[0];
-                    } else {
+                    var temp_repo = this.findRepoByName('Events Banner');
+                    if(temp_repo !== null && temp_repo !== undefined) {
+                       temp_repo = temp_repo.images;
+                       this.pageBanner = temp_repo[0];
+                    }
+                    else {
                         this.pageBanner = {
-                            "image_url": "//codecloud.cdn.speedyrails.net/sites/5b71e1e76e6f6411c4060000/image/jpeg/1529532304000/insidebanner2.jpg"
+                            "image_url": "//codecloud.cdn.speedyrails.net/sites/5b71eb886e6f6450013c0000/image/jpeg/1529532304000/insidebanner2.jpg"
                         }
                     }
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 }); 
+                
                 this.$store.dispatch("getData", "contests").then(response => {
                     this.currentContest = this.findContestByShowOnSlug('shopsatrossmoor-contest');
-                    this.dataLoaded = true;
                     console.log(this.currentContest)
+                    this.dataLoaded = true;
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
