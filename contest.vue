@@ -122,7 +122,7 @@
                 }); 
                 
                 this.$store.dispatch("getData", "contests").then(response => {
-                    this.currentContest = this.findContestBySlug('shopsatrossmoor-contest');
+                    this.currentContest = this.findContestByShowOnSlug('shopsatrossmoor-contest');
                     console.log(this.currentContest)
                     this.dataLoaded = true;
                 }, error => {
