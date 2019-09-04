@@ -404,7 +404,7 @@ img{
     }
     .footer_content {
         padding: 48px 0;
-        font-size: 0.9375rem;
+        //font-size: 0.9375rem;
         line-height: 0.9375rem;
         text-align: center;
         .social_icon {
