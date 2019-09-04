@@ -293,6 +293,7 @@ img{
             margin: auto 20px;
             display: inline-block;
             position: relative;
+            font-size: 0.875rem;
             line-height: 0.8125rem;
             text-align: center;
             text-transform: uppercase;
@@ -312,7 +313,7 @@ img{
             .dropdown_item {
                 padding: 10px;
                 min-width: 156px;
-                font-size: 0.75rem;
+                font-size: 0.875rem;
                 line-height: normal;
                 color: #FFF;
                 a:hover {
