@@ -334,7 +334,8 @@ img{
                 line-height: normal;
                 color: #FFF;
                 a:hover {
-                    color: inherit;
+                    color: #FFF;
+                    text-decoration: underline;
                 }
             	&:hover, &:active, &:focus, &:visited {
             	    background: $primary;
