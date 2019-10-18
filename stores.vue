@@ -210,7 +210,7 @@
                 },
                 dropDownCats() {
                     var vm = this;
-                    var store_cats = _.filter(this.processedStores, function(o) { return !_.includes(o.categories, vm.dineFilter) });
+                    var store_cats = _.filter(this.processedStores, function(o) { return !_.includes(o.categories, vm.dineFilter) && _.toNumber(o.id) !== vm.dineFilter && o.store_ids != null });
                     var cats = [];
                     _.forEach(store_cats, function(value, key) {
                         _.forEach(value.categories, function(category, key) {
@@ -225,6 +225,15 @@
                     cats.unshift('All');
                     return cats;
                 },
+                // dropDownCats() {
+                //     var vm = this;
+                //     var cats = _.filter(this.processedCategories, function(o) { return _.toNumber(o.id) !== vm.dineFilter && o.store_ids != null});
+                //     cats = _.map(cats, 'name');
+                //     cats.unshift('All');
+                //     return cats;
+                // },
+                
+                
                 filterByCategory() {
                     category_id = this.selectedCat;
                     if (category_id == "All" || category_id == null || category_id == undefined) {
