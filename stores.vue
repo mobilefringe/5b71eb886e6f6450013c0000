@@ -232,8 +232,6 @@
                     cats.unshift('All');
                     return cats;
                 },
-                
-                
                 filterByCategory() {
                     category_id = this.selectedCat;
                     if (category_id == "All" || category_id == null || category_id == undefined) {
