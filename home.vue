@@ -108,7 +108,7 @@
     </div>
 </template>
 <script>
-    define(["Vue", "vuex", "vue!vue-slick", "moment", "moment-timezone", "vue-moment", "vue!welcome_msg"], function (Vue, Vuex, slick, moment, tz, VueMoment, welcomeMessage) {
+    define(["Vue", "vuex", "vue-meta", "vue!vue-slick", "moment", "moment-timezone", "vue-moment", "vue!welcome_msg"], function (Vue, Vuex, Meta, slick, moment, tz, VueMoment, welcomeMessage) {
         return Vue.component("home-component", {
             template: template, // the variable template will be injected
             data: function() {
@@ -141,7 +141,13 @@
                         nextArrow: '.insta_next',
                         prevArrow: '.insta_prev'
                     },
-                    instaFeed: null
+                    instaFeed: null,
+                    meta: {
+                        meta_title: "",
+                        meta_description: "",
+                        meta_keywords: "",
+                        meta_image: ""
+                    }
                 }
             },
             created(){
@@ -154,7 +160,7 @@
                             insta.caption.text = _.truncate(insta.caption.text, { 'length': 60, 'separator': ' ' });
                         }
                     });
-                    
+                    this.meta = this.findMetaDataByPath(this.$route.path);
                     this.dataLoaded = true;  
                 });
             },
