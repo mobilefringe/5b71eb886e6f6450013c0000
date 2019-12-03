@@ -349,7 +349,9 @@ strong {
                 text-align: left;
                 &:hover, &:active, &:focus, &:visited {
             	    background: $secondary;
-            	    color: #000;
+            	    p {
+            	        color: #000;
+            	    }
             	}
             	p {
             	    margin: 0;
