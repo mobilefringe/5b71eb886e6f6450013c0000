@@ -357,9 +357,9 @@ strong {
             	    margin: 0;
             	    color: #fff;
             	}
-            	a:hover {
-            	    color: #000;
-            	}
+            // 	a:hover {
+            // 	    color: #000;
+            // 	}
             }
         }
     }
