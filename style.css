@@ -359,9 +359,6 @@ strong {
             	    &:focus {
             	        color: #fff;   
             	    }
-            	    &:active {
-            	        color: #000;
-            	    }
             	}
             }
         }
