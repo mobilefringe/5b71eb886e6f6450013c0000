@@ -267,24 +267,24 @@
                         this.storeHours = _.sortBy(storeHours, function(o) { return o.day_of_week });
                         
                         // DELIVERY
-                        var delivery_category = 8233;
+                        var delivery_category = 8900;
                         var categories = this.currentStore.categories;
                         var subcategories = this.currentStore.subcategories;
                         if (_.includes(categories, delivery_category) && !_.isEmpty(subcategories)) {
                             this.deliveryAvailable = true;
-                            if (_.includes(subcategories, 8237)) {
+                            if (_.includes(subcategories, 8904)) {
                                 this.hasUberEats = true;
                             }
-                            if (_.includes(subcategories, 8234)) {
+                            if (_.includes(subcategories, 8901)) {
                                 this.hasDoordash = true;
                             }
-                            if (_.includes(subcategories, 8235)) {
+                            if (_.includes(subcategories, 8902)) {
                                 this.hasGrubhub = true;
                             }
-                            if (_.includes(subcategories, 8236)) {
+                            if (_.includes(subcategories, 8903)) {
                                 this.hasPostmates = true;   
                             }
-                            if (_.includes(subcategories, 8244)) {
+                            if (_.includes(subcategories, 8905)) {
                                 this.hasRestaurantDelivery = true;   
                             }
                         }
