@@ -359,6 +359,9 @@ strong {
             	    &:focus {
             	        color: #fff;   
             	    }
+            	    &:visited {
+            	        color: #000;
+            	    }
             	}
             }
         }
