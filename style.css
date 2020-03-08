@@ -359,7 +359,7 @@ strong {
             	    &:focus {
             	        color: #fff;   
             	    }
-            	    &:visited {
+            	    &:active {
             	        color: #000;
             	    }
             	}
