@@ -355,9 +355,10 @@ strong {
             	    }
             	    
             	}
-            	a:focus {
-            	    margin: 0;
-            	    color: #fff;
+            	a {
+            	    &:focus, &:visited {
+            	        color: #fff;   
+            	    }
             	}
             }
         }
