@@ -349,12 +349,13 @@ strong {
                 text-align: left;
                 &:hover, &:active, &:focus, &:visited {
             	    background: $secondary;
-            	    p,a {
+            	    p,
+            	    a {
             	        color: #000;
             	    }
             	    
             	}
-            	p {
+            	a:focus {
             	    margin: 0;
             	    color: #fff;
             	}
