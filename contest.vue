@@ -3,7 +3,7 @@
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
             <div v-if="dataLoaded" v-cloak>
-                <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(' + pageBanner.image_url + ') center center rgba(73, 126, 113)' }">
+                <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  #434037 url(' + pageBanner.image_url + ') center center' }">
                     <div class="main_container position_relative">
                         <h1>Contest</h1>
                     </div>
@@ -66,12 +66,20 @@
         						    </div>
         						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
         						        <label class="checkbox">
-                                            <input name="agree_newsletter" required type="checkbox" v-model="form_data.newsletter">
-                                                I agree to receive newsletters from {{ property.name }}. (You can unsubscribe at anytime)
+                                            <input name="agree_newsletter" type="checkbox" v-model="form_data.newsletter">
+                                            I agree to receive newsletters from {{ property.name }}. (You can unsubscribe at anytime)
                                         </label>
         						    </div>
+        						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_terms')}">
+        						        <label class="checkbox">
+                                            <input name="agree_terms" type="checkbox" v-model="form_data.terms" required>
+                                                I have read and agree to the <a class="primary" href="	/pages/shopsatrossmoor-rules-regulations" target="_blank">Contest Rules & Regulations</a>.
+                                        </label>
+        						    </div>
+        						</div>
+        						<div class="form-inline row margin_40">
         						    <div class="col-xs-12">
-        						        <p>For more details about personal privacy, please read our <a href="/pages/shopsatrossmoor-privacy-policy" target="_blank">Privacy Policy</a>.</p>
+        						        <p>For more details about personal privacy, please read our <a class="primary" href="/pages/shopsatrossmoor-privacy-policy" target="_blank">Privacy Policy</a>.</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -87,15 +95,24 @@
         </transition>
     </div>
 </template>
+
+<style>
+    a.primary {
+        color: #5d7e67;
+    }
+</style>
+
 <script>
-    define(["Vue", "vuex", "jquery", "axios", "vee-validate"], function(Vue, Vuex, $, axios, VeeValidate) {
+    define(["Vue", "vuex", "jquery", "axios", "vee-validate", '!json.site.json'], function(Vue, Vuex, $, axios, VeeValidate, site) {
         Vue.use(VeeValidate);
+        // console.log(VueScrollTo)
         return Vue.component("contest-component", {
             template: template, // the variable template will be injected
             data: function() {
                 return {
                     dataLoaded: false,
-                    pageBanner: null,
+                    pageBanner: {},
+                    siteInfo: site,
                     form_data: {},
                     formSuccess: false,
                     formError: false,
@@ -107,14 +124,12 @@
             },
             created() {
                 this.$store.dispatch("getData", "repos").then(response => {
-                    var temp_repo = this.findRepoByName('Events Banner');
-                    if(temp_repo !== null && temp_repo !== undefined) {
-                       temp_repo = temp_repo.images;
-                       this.pageBanner = temp_repo[0];
-                    }
-                    else {
+                    var temp_repo = this.findRepoByName('Events Banner').images;
+                    if(temp_repo != null) {
+                        this.pageBanner = temp_repo[0];
+                    } else {
                         this.pageBanner = {
-                            "image_url": "//codecloud.cdn.speedyrails.net/sites/5de41b666e6f647ab1000000/image/jpeg/1529532304000/insidebanner2.jpg"
+                            "image_url": "//codecloud.cdn.speedyrails.net/sites/5de031406e6f6416dbb80000/image/png/1554994625000/riverside_paceholder_banner.png"
                         }
                     }
                 }, error => {
@@ -123,12 +138,7 @@
                 
                 this.$store.dispatch("getData", "contests").then(response => {
                     this.currentContest = this.findContestByShowOnSlug('shopsatrossmoor-contest');
-                    console.log(this.currentContest)
-                    if (this.currentContest) {
-                        this.dataLoaded = true;
-                    } else {
-                        this.$router.replace({ path: '/' });
-                    }
+                    this.dataLoaded = true;
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
@@ -136,12 +146,11 @@
             watch : {
                 formSuccess() {
                     setTimeout(function(){
-                        console.log($("#send_contact_success"), $("#send_contact_success").offset());
-                        var position = $("#send_contact_success").offset().top - 250;
+                        var position = $("#send_contact_success").offset().top - 135;
                         $('html, body').animate({
                     		scrollTop: position
                     	}, 500, 'linear');
-                    }, 700)
+                    },700)
                 }
             },
             computed: {
@@ -158,9 +167,10 @@
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             let errors = this.errors;
-                            //format contests data for MM
+                            // Format contests data for MM
                             var contest_entry = {};
                             contest_entry.contest = this.form_data;
+                            console.log( contest_entry.contest)
                             var vm = this;
                             host_name = this.property.mm_host.replace("http:", "");
                             var url = host_name + "/contests/" + this.currentContest.slug + "/create_js_entry";
